@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import '../../table.scss';
 
-const FlightsList = ({ flightsList }) => {
+const FlightsList = ({ flightsList, direction }) => {
   return (
     <table className="table">
       <thead>
@@ -16,21 +18,39 @@ const FlightsList = ({ flightsList }) => {
       </thead>
       <tbody>
         {flightsList.map(flight => {
+          const getTime = data => moment(new Date(data)).format('H:mm');
+          const localeTimeArrival = getTime(flight.timeToStand);
+          const localeTimeDeparture = getTime(flight.timeDepShedule);
+
+          const arrivalStatus = flight.timeLandFact
+            ? getTime(flight.timeLandFact)
+            : getTime(flight.timeLandCalc);
+          const departureStatus = flight.timeTakeofFact
+            ? getTime(flight.timeTakeofFact)
+            : getTime(flight.timeDepExpectCalc);
+
           const terminalName =
             flight.term === 'A'
               ? 'terminal-name terminal-name_green'
               : 'terminal-name terminal-name_blue';
+
           return (
             <tr className="table-row" key={flight.ID}>
               <td className="terminal-field table-cell">
                 <span className={terminalName}>{flight.term}</span>
               </td>
-              <td className="time-field">{flight.timeToStand.slice(11, 16)}</td>
+              <td className="time-field">
+                {direction === 'arrival' && localeTimeArrival}
+                {direction === 'departure' && localeTimeDeparture}
+              </td>
               <td className="city-field">
                 {flight['airportToID.city_en']}
                 {flight['airportFromID.city_en']}
               </td>
-              <td className="status-field">no</td>
+              <td className="status-field">
+                {direction === 'departure' && departureStatus}
+                {direction === 'arrival' && arrivalStatus}
+              </td>
               <td className="company-field">
                 {flight.airline.logoName}
                 <img
@@ -48,6 +68,11 @@ const FlightsList = ({ flightsList }) => {
       </tbody>
     </table>
   );
+};
+
+FlightsList.propTypes = {
+  flightsList: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  direction: PropTypes.string.isRequired,
 };
 
 export default FlightsList;

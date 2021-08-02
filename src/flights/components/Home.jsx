@@ -5,8 +5,6 @@ import Direction from './Direction.jsx';
 import Buttons from './Buttons.jsx';
 
 const Home = () => {
-  const { search } = useLocation();
-  console.log(search);
   return (
     <div className="page">
       <h2 className="flight-title">Search Flight</h2>
