@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import '../../table.scss';
+import { useLocation } from 'react-router-dom';
 
 const FlightsList = ({ flightsList, direction }) => {
   return (
@@ -24,10 +25,10 @@ const FlightsList = ({ flightsList, direction }) => {
 
           const arrivalStatus = flight.timeLandFact
             ? getTime(flight.timeLandFact)
-            : getTime(flight.timeLandCalc);
+            : flight.timeLandCalc && getTime(flight.timeLandCalc);
           const departureStatus = flight.timeTakeofFact
             ? getTime(flight.timeTakeofFact)
-            : getTime(flight.timeDepExpectCalc);
+            : flight.timeDepExpectCalc && getTime(flight.timeDepExpectCalc);
 
           const terminalName =
             flight.term === 'A'
@@ -41,7 +42,7 @@ const FlightsList = ({ flightsList, direction }) => {
               </td>
               <td className="time-field">
                 {direction === 'arrival' && localeTimeArrival}
-                {direction === 'departure' && localeTimeDeparture}
+                {direction === 'departure' && flight.timeDepShedule && localeTimeDeparture}
               </td>
               <td className="city-field">
                 {flight['airportToID.city_en']}
