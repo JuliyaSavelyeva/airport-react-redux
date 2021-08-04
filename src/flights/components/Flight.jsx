@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import '../../table.scss';
 import { useLocation } from 'react-router-dom';
 
 const Flight = ({ flight }) => {

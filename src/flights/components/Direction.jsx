@@ -20,11 +20,7 @@ const Direction = ({ getFlightsList, flightsList, getFilterFlightsList }) => {
     getFilterFlightsList(text.search);
   }, [text.search]);
 
-  if (!flightsList) {
-    return null;
-  }
-
-  if (flightsList.length === 0) {
+  if (flightsList.length === 0 && text.search) {
     return <h2 className="no-flights">No flights</h2>;
   }
 

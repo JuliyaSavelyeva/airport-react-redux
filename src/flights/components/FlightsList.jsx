@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Flight from './Flight.jsx';
-import '../../table.scss';
+import '../../styles/table.scss';
 
 const FlightsList = ({ flightsList }) => {
   return (

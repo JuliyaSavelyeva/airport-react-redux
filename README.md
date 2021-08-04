@@ -1,7 +1,7 @@
 # airport-react-redux
 
 ### [Netlify link](https://cocky-visvesvaraya-dff6a8.netlify.app)
-### [Github link](https://github.com/JuliyaSavelyeva/airport-react-redux)
+### [Github link](https://juliyasavelyeva.github.io/airport-react-redux/)
 
 ### The tech stack is:
 
