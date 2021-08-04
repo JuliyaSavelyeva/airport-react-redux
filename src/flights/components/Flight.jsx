@@ -14,12 +14,12 @@ const Flight = ({ flight }) => {
 
   useEffect(() => {
     const arrivalStatus = flight.timeLandFact
-      ? getTime(flight.timeLandFact)
-      : getTime(flight.timeLandCalc);
+      ? `Landend ${getTime(flight.timeLandFact)}`
+      : `Schedule ${getTime(flight.timeLandCalc)}`;
 
     const departureStatus = flight.timeTakeofFact
-      ? getTime(flight.timeTakeofFact)
-      : getTime(flight.timeDepExpectCalc);
+      ? `Taked of ${getTime(flight.timeTakeofFact)}`
+      : `Schedule ${getTime(flight.timeDepExpectCalc)}`;
 
     const localeTimeArrival = getTime(flight.timeToStand);
     const localeTimeDeparture = getTime(flight.timeDepShedule);
@@ -43,12 +43,14 @@ const Flight = ({ flight }) => {
         {flight['airportFromID.city_en']}
       </td>
       <td className="status-field">{time.status}</td>
-      <td className="company-field">
-        {flight.airline.logoName}
-        <img src={flight.airline.en.logoSmallName} width="60" height="40" alt="companyName" />
-        <p>{flight.airline.en.name}</p>
+      <td className="company">
+        <span className="company-field">
+          <img src={flight.airline.en.logoSmallName} width="60" height="40" alt="companyName" />
+          <p>{flight.airline.en.name}</p>
+        </span>
       </td>
       <td className="flight-field">{flight.codeShareData[0].codeShare}</td>
+      <td className="empty-field" />
     </tr>
   );
 };

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ext .jsx,.js src/",
     "test": "jest",
-    "test:watch": "jest --watch",
     "start": "webpack-dev-server -d --devtool eval-source-maps --open",
     "build": "webpack -p"
   },
@@ -40,7 +40,6 @@
     "babel-eslint": "^10.1.0",
     "classnames": "^2.3.1",
     "core-js": "^3.5.0",
-    "eslint-config-airbnb-base": "^14.2.1",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "qs": "^6.10.1",

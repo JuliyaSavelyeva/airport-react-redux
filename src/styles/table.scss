@@ -2,7 +2,7 @@
   width: 100%;
   background-color: #fff;
   padding-top: 60px;
-  font-size: 22px;
+  font-size: 18px;
   border-collapse: collapse;
 
   th {
@@ -10,10 +10,14 @@
     height: 100px;
     vertical-align: bottom;
     padding-bottom: 15px;
+    text-align: start;
+
+    &:nth-child(1) {
+      text-align: center;
+    }
   }
 
   td {
-    text-align: center;
     height: 75px;
   }
 
@@ -38,7 +42,6 @@
 
     .company-field {
       display: flex;
-      justify-content: center;
       align-items: center;
 
       img {
@@ -64,6 +67,10 @@
         color: #1eb7ee;
         border: 1px solid #1eb7ee;
       }
+    }
+
+    .empty-field {
+      width: 200px;
     }
   }
 }
