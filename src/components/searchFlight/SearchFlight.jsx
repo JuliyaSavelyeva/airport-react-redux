@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import qs from 'qs';
-import '../../styles/search-form.scss';
-import ImgSearch from './ImgSearch.jsx';
+import './search-form.scss';
+import ImgSearch from '../svg/ImgSearch.jsx';
 
 const SearchFlight = () => {
-  const url = useLocation();
-  const searchText = qs.parse(url.search, { ignoreQueryPrefix: true });
+  const { pathname, search } = useLocation();
+  const searchText = qs.parse(search, { ignoreQueryPrefix: true });
   const initialValue = searchText.search ? searchText.search : '';
 
   const [value, setValue] = useState(initialValue);
@@ -16,14 +16,14 @@ const SearchFlight = () => {
     setValue(e.target.value);
   };
 
-  let pathUrl = url.pathname;
+  let pathUrl = pathname;
 
-  if (url.pathname === '/' && value) {
+  if (pathname === '/' && value) {
     pathUrl = `/departure?search=${value}`;
   }
 
-  if (url.pathname !== '/' && value) {
-    pathUrl = `${url.pathname}?search=${value}`;
+  if (pathname !== '/' && value) {
+    pathUrl = `${pathname}?search=${value}`;
   }
 
   return (

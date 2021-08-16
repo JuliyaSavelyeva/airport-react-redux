@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import SearchFlight from './SearchFlight.jsx';
-import Direction from './Direction.jsx';
-import Buttons from './Buttons.jsx';
+import SearchFlight from '../searchFlight/SearchFlight.jsx';
+import Direction from '../directions/Direction.jsx';
+import Buttons from '../button/Buttons.jsx';
 
 const Home = () => {
   return (

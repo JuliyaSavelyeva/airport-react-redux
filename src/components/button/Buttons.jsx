@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import ImgArrivals from './ImgArrivals.jsx';
-import ImgDepartures from './ImgDepartures.jsx';
-import '../../styles/buttons.scss';
+import ImgArrivals from '../svg/ImgArrivals.jsx';
+import ImgDepartures from '../svg/ImgDepartures.jsx';
+import './buttons.scss';
 
 const Buttons = () => {
   const [isClassActivity, setIsClassActivity] = useState({

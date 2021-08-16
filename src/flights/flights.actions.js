@@ -1,7 +1,7 @@
 import { fetchData } from './tasksGateway.js';
 
 export const GET_FLIGHTS_LIST = 'GET_FLIGHTS_LIST';
-export const GET_FILTER_FLIGHTS_LIST = 'GET_FILTER_FLIGHTS_LIST';
+export const GET_SEARCH_DATA = 'GET_SEARCH_DATA';
 
 export const getFetchData = flightsList => ({
   type: GET_FLIGHTS_LIST,
@@ -10,8 +10,8 @@ export const getFetchData = flightsList => ({
   },
 });
 
-export const getFilterFlightsList = searchText => ({
-  type: GET_FILTER_FLIGHTS_LIST,
+export const getSearchData = searchText => ({
+  type: GET_SEARCH_DATA,
   payload: {
     searchText,
   },

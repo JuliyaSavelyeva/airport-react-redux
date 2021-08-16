@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Flight from './Flight.jsx';
-import '../../styles/table.scss';
+import './table.scss';
 
 const FlightsList = ({ flightsList }) => (
   <table className="table">
